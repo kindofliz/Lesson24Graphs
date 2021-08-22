@@ -10,6 +10,7 @@ public class Lesson24 {
         for (Vertex myVertex : myGraph.getAdjVertices().keySet()) {
             System.out.println(myVertex.label);
         }
+        System.out.println();
 
 
         //EXAMPLE FROM MOODLE (FLIGHTS)
@@ -22,16 +23,36 @@ public class Lesson24 {
         for (Vertex myVertex : flightGraph.getAdjVertices().keySet()) {
             System.out.println(myVertex.label);
         }
+        System.out.println();
 
-        //check artjoms' github for example and also complete the tutorial online
 
         //Write an algorithm that calculates how many direct flights are in the Graph (in total).
+        int directFlights = 0;
+        for (Vertex myVertex : flightGraph.getAdjVertices().keySet()) {
+            for (Vertex flight : flightGraph.getAdjVertices(myVertex.label)) {
+                directFlights++;
+            }
+        }
+        System.out.println("Total number of direct flights: " + directFlights);
+        System.out.println();
 
 
         //Print out all airports which are connected to “Cape Town” airport with direct flight.
+        System.out.println("Direct flights from \"Cape Town\": ");
+        for (Vertex directFlightCT : flightGraph.getAdjVertices("Cape Town")) {
+            System.out.println(directFlightCT.label);
+        }
+        System.out.println();
 
 
         //Write an algorithm that calculates how many direct flights are from Jo’burg airport.
+
+        int directFlightsJB = 0;
+        for (Vertex directFlightJB : flightGraph.getAdjVertices("Jo'burg")) {
+            directFlightsJB++;
+        }
+        System.out.println("Number of direct flights from \"Jo'burg\": " + directFlightsJB);
+        System.out.println();
 
 
 
